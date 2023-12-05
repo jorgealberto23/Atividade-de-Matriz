@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Atividade 8</title>
+</head>
+    <body>
+    <script>
+        var professores = [];
+ 
+        function cadastrarProfessor() {
+            var nome = prompt("Digite o nome do professor:");
+            var turnos = prompt("Digite os turnos (matutino, vespertino, noturno), separados por vírgula:").split(",");
+            var disciplinas = prompt("Digite as disciplinas, separadas por vírgula:").split(",");
+ 
+            professores.push({
+                nome: nome,
+                turnos: turnos,
+                disciplinas: disciplinas
+            });
+ 
+            alert("Professor cadastrado com sucesso!");
+        }
+ 
+        function consultarProfessor() {
+            var disciplina = prompt("Digite a disciplina desejada:");
+            var turno = prompt("Digite o turno desejado (matutino, vespertino, noturno):");
+ 
+            var professoresDisponiveis = professores.filter(function(professor) {
+                return professor.turnos.includes(turno) && professor.disciplinas.includes(disciplina);
+            });
+ 
+            if (professoresDisponiveis.length > 0) {
+                var resultado = "Professores disponíveis:\n";
+                professoresDisponiveis.forEach(function(professor) {
+                    resultado += "Nome: " + professor.nome + "\n";
+                });
+                alert(resultado);
+            } else {
+                alert("Nenhum professor disponível para a disciplina e turno informados.");
+            }
+        }
+ 
+        cadastrarProfessor();
+        consultarProfessor();
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 5</title>
+</head>
+ 
+ <body>
+<script>
+    let matriz = [
+        [20, 61, 22, 3, 6, 4],
+        [51, 0, 77, 45, 43, 12],
+        [2, 23, 0, 10, 15, 11],
+        [14, 54, 99, 65, 35, 34],
+        [37, 5, 8, 27, 77, 36]
+    ];
+
+    // mostrar a matriz
+    document.write("A</p>")
+    for (let linha = 0; linha < 5; linha++) {
+        for (let coluna = 0; coluna < 6; coluna++) {
+            document.write(matriz[linha][coluna] + "  ");
+        }
+        document.write("<br/>")
+    }
+
+    document.write("</br>B</p>")
+    for (let coluna = 0; coluna < 6; coluna++) {
+        for (let linha = 0; linha < 5; linha++) {
+            document.write(matriz[linha][coluna] + "  ");
+        }
+        document.write("<br/>");
+        
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 7</title>
+    <body>
+        <h1>Atividade 7</h1>
+        <div id="resultados"></div>
+
+    <script>
+        function calcularPopulacao() {
+            var populacaoCidades = [];
+ 
+            for (var i = 0; i < 20; i++) {
+                var populacaoEstado = [];
+                for (var j = 0; j < 5; j++) {
+                    var populacao = prompt("Digite a população da cidade " + (j + 1) + " do estado " + (i + 1) + ":");
+                    populacaoEstado.push(parseInt(populacao));
+                }
+                populacaoCidades.push(populacaoEstado);
+            }
+ 
+            var maiorPopulacao = 0;
+            var menorPopulacao = Infinity;
+ 
+            var resultadosHtml = "<h2>Resultados</h2>";
+ 
+            for (var i = 0; i < populacaoCidades.length; i++) {
+                var populacaoEstado = populacaoCidades[i];
+                var somaPopulacaoEstado = 0;
+ 
+                for (var j = 0; j < populacaoEstado.length; j++) {
+                    var populacaoCidade = populacaoEstado[j];
+                    somaPopulacaoEstado += populacaoCidade;
+ 
+                    if (populacaoCidade > maiorPopulacao) {
+                        maiorPopulacao = populacaoCidade;
+                    }
+                    if (populacaoCidade < menorPopulacao) {
+                        menorPopulacao = populacaoCidade;
+                    }
+                }
+ 
+                var mediaEstado = somaPopulacaoEstado / populacaoEstado.length;
+ 
+                resultadosHtml += "<p><strong>Estado " + (i + 1) + ":</strong><br>";
+                resultadosHtml += "Maior População: " + Math.max(...populacaoEstado) + "<br>";
+                resultadosHtml += "Menor População: " + Math.min(...populacaoEstado) + "<br>";
+                resultadosHtml += "Média de População: " + mediaEstado.toFixed(2) + "<br>";
+                resultadosHtml += "---------------------------</p>";
+            }
+ 
+            resultadosHtml += "<p><strong>Maior População Global:</strong> " + maiorPopulacao + "</p>";
+            resultadosHtml += "<p><strong>Menor População Global:</strong> " + menorPopulacao + "</p>";
+ 
+            document.getElementById("resultados").innerHTML = resultadosHtml;
+        }
+        window.onload = calcularPopulacao;
+    </script>
+</body>
+</html>

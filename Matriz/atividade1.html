@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 1</title>
+</head>
+<body>
+    <script>
+        let matriz = [
+            [1, 2, 3, 4, 5],
+            [6, 7, 8, 9, 10],
+            [11, 12, 13, 14, 15],
+            [16, 17, 18, 19, 20]
+        ];
+
+        for (let linhas = 0; linhas < matriz.length; linhas++) {
+            let somaLinha = 0;
+            for (let colunas = 0; colunas < matriz[0].length; colunas++) {
+                somaLinha += matriz[linhas][colunas];
+                document.write(matriz[linhas][colunas] + " ");
+            }
+            document.write("= " + somaLinha + "<br>");
+        }
+
+        for (let colunas = 0; colunas < matriz[0].length; colunas++) {
+            let somaColuna = 0;
+            for (let linhas = 0; linhas < matriz.length; linhas++) {
+                somaColuna += matriz[linhas][colunas];
+            }
+            document.write(somaColuna + "  "); 
+        }
+
+    </script>
+</body>
+</html>

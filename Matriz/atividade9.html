@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 9</title>
+</head>
+<body>
+    <script>
+        var mapaJogador1 = criarMapa();
+        var mapaJogador2 = criarMapa();
+        var pontosJogador1 = 0;
+        var pontosJogador2 = 0;
+ 
+        function criarMapa() {
+            var mapa = [];
+            for (var i = 0; i < 10; i++) {
+                mapa.push(Array(5).fill(0));
+            }
+            return mapa;
+        }
+ 
+        function inserirNavios(mapa) {
+            for (var i = 0; i < 10; i++) {
+                var linha = prompt("Jogador, insira a linha do navio " + (i + 1) + " (0-9):");
+                var coluna = prompt("Jogador, insira a coluna do navio " + (i + 1) + " (0-4):");
+                mapa[linha][coluna] = 1;
+            }
+        }
+ 
+        function atirarBombas(mapa, pontos) {
+            for (var i = 0; i < 10; i++) {
+                var linhaTiro = prompt("Jogador, insira a linha do tiro " + (i + 1) + " (0-9):");
+                var colunaTiro = prompt("Jogador, insira a coluna do tiro " + (i + 1) + " (0-4):");
+ 
+                if (mapa[linhaTiro][colunaTiro] === 1) {
+                    pontos += 100;
+                    alert("Você acertou um navio! +100 pontos");
+                } else {
+                    pontos += 70;
+                    alert("Você não acertou um navio. +70 pontos");
+                }
+            }
+            return pontos;
+        }
+ 
+        inserirNavios(mapaJogador1);
+        pontosJogador2 = atirarBombas(mapaJogador1, pontosJogador2);
+        inserirNavios(mapaJogador2);
+        pontosJogador1 = atirarBombas(mapaJogador2, pontosJogador1);
+ 
+        alert("Pontos do Jogador 1: " + pontosJogador1);
+        alert("Pontos do Jogador 2: " + pontosJogador2);
+ 
+        if (pontosJogador1 > pontosJogador2) {
+            alert("O Jogador 1 venceu!");
+        } else if (pontosJogador2 > pontosJogador1) {
+            alert("O Jogador 2 venceu!");
+        } else {
+            alert("O jogo terminou em empate!");
+        }
+    </script>
+</body>
+</html>

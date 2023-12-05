@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 3</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td>Numero de matricula</td> <td>média final</td> <td>Frequência(%)</td>
+        </tr>
+    <tr>
+        <th id="matricula"></th> <th id="media"></th> <th id="frequencia"></th>
+    </tr>
+    </table>
+
+    <span id="final"></span>
+</body>
+<script>
+    let NumeroMatricula;
+    let media;
+    let frequencia;
+    let matriz = [];
+    let mediafinal = 0
+    let frequenciafinal = 0
+
+    for (let i = 0; i < 100; i++) {
+        matriz.push([])
+
+        NumeroMatricula = prompt("Digite o número de matricula do aluno");
+        matriz[i].push(NumeroMatricula)
+        media = Number(prompt("Digite a média final do aluno"));
+        matriz[i].push(media)
+        frequencia = Number(prompt("Digite a frequência do aluno"));
+        matriz[i].push(frequencia)
+        
+        document.getElementById("matricula").innerHTML += matriz[i][0] + "<br>"
+        document.getElementById("media").innerHTML += matriz[i][1] + "<br>"
+        document.getElementById("frequencia").innerHTML += matriz[i][2] + "<br>"
+
+        mediafinal = mediafinal + media
+        frequenciafinal = frequenciafinal + frequencia
+    }
+    matriz.push([])
+    matriz[matriz.length - 1].push(matriz.length - 1)
+
+    mediafinal = mediafinal/(matriz.length - 1)
+    matriz[matriz.length - 1].push(mediafinal)
+
+    frequenciafinal = frequenciafinal/(matriz.length - 1)
+    matriz[matriz.length - 1].push(frequenciafinal)
+
+    document.getElementById("final").innerHTML = "Alunos: " + matriz[matriz.length - 1][0] + "<br>Média das médias finais: " + matriz[matriz.length - 1][1] + "<br>Média das frequência: " + + matriz[matriz.length - 1][2]
+</script>
+</html>
